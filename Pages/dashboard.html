@@ -1,0 +1,105 @@
+<div id="kolumnkozeprekoszi">
+    <div>
+        <h1>Tanári adatbázis kezelő</h1>
+        <div id="controls">   
+            <input type="text" class="search-click" name="" placeholder="Verscím/Költő keresés"  id="verskeres"/>
+            
+            <div>
+                <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#logreg">Új</button>
+                <button type='button' class='button' onclick="loadtable()">Frissítés</button>
+            </div>
+        </div>
+        <div class="modal fade" id="beallitasok" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modalvers modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Beállítások</h5>
+                </div>
+                <div class="modal-body" id="modalsz">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modalvers modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitledash">Vers</h5>
+                </div>
+                <div class="modal-body" id="modalvers">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="modal fade" id="logreg" tabindex="-1" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="main newdata">  	
+                        <input type="checkbox" id="chk" aria-hidden="true">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="form-group">
+                            <H3>Évfolyam</H3>
+                            <select class="form-control" id="osztaly">
+                                <option value="9">9. Osztály</option>
+                                <option value="10">10. Osztály</option>
+                                <option value="11">11. Osztály</option>
+                                <option value="12">12. Osztály</option>
+                            </select>
+                        </div>
+                        <input type="text" name="ev" id="ev" placeholder="Év">
+                        <input type="text" name="kolto" id="kolt" placeholder="Költő">
+                        <input type="text" name="cim" id="cim" placeholder="Cím">
+                        <textarea name="vers" id="verssubmit" cols="30" rows="10" placeholder="Vers Szöveg" style="resize: none;"></textarea>
+                        <button id="submitButt" data-bs-dismiss="modal" onclick="newdata()">Beküld</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="main newdata">  	
+                        <input type="checkbox" id="chk" aria-hidden="true">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="form-group">
+                            <H3>Évfolyam</H3>
+                            <select class="form-control" id="osztalyu">
+                                <option value="9">9. Osztály</option>
+                                <option value="10">10. Osztály</option>
+                                <option value="11">11. Osztály</option>
+                                <option value="12">12. Osztály</option>
+                            </select>
+                        </div>
+                        <input type="text" name="ev" id="evu" placeholder="Év">
+                        <input type="text" name="kolto" id="koltu" placeholder="Költő">
+                        <input type="text" name="cim" id="cimu" placeholder="Cím">
+                        <textarea name="vers" id="verssubmitu" cols="30" rows="10" placeholder="Vers Szöveg" style="resize: none;"></textarea>
+                        <button id="submitButt" data-bs-dismiss="modal" onclick="editmentes()">Mentés</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <table id="dbmanager">
+        <thead>
+            <tr>
+                <th class="tdosztaly">Osztály</th>
+                <th>Költő</th>
+                <th>Cím</th>
+                <th class="tdmuv">Műv.</th>
+            </tr>
+        </thead>
+        <tbody id="data">
+        </tbody>
+    </table>
+
+    </div>

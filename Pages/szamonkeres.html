@@ -1,0 +1,98 @@
+<div id="kolumnkozeprekoszi">
+    <div>
+        <h1>Tanári számonkérés kezelő</h1>
+        <div id="controls">  
+          <input type="text" class="search-click" name="" placeholder="Számonkérés keresés"  id="szkeres"/>
+          <div>
+            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#logreg">Új</button>
+            <button type='button' class='button' onclick="loadtablesz()">Frissítés</button>
+          </div>      
+        </div>
+
+        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="diakok" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered diakok" role="document">
+            <div class="modalvers modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Diákok</h5>
+              </div>
+              <div class="modal-body" id="diakokmodal">
+                <table id="dbmanager">
+                  <tr>
+                      <th>Tanuló</th>
+                      <th>Ered.</th>
+                      <th>Módosítás</th>
+                      <th>Műv.</th>
+                  </tr>
+              </table>     
+              <table id="diakokmodaltable"></table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="eredmenyfclose()" data-bs-dismiss="modal">Bezárás</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="beallitasok" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modalvers modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Beállítások</h5>
+                </div>
+                <div class="modal-body" id="modalsz">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="verselonezet" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modalvers modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle2">Vers</h5>
+                </div>
+                <div class="modal-body" id="verssz">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="modal fade" id="logreg" tabindex="-1" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="main newdata">  	
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="form-group">
+                            <H3>Vers</H3>
+                            <select class="form-control" id="verseksz"></select>
+                            <H3>Hány db szó legyen kiszedve?</H3>
+                            <div id="range"> 
+                              <input type="range" id="db" value="5" min="5" max="19" oninput="this.nextElementSibling.value = this.value">
+                              <output>5</output>
+                            </div>
+                        </div>
+ 
+                        <input type="text" name="kolto" id="osztalysz" placeholder="Számnokérés neve">
+                        <button id="submitButt" data-bs-dismiss="modal" onclick="newdatasz()">Beküld</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table id="dbmanager">
+      <thead>
+        <tr>
+            <th>Név</th>
+            <th>Elinditva</th>
+            <th>Kód</th>
+            <th>Műv.</th>
+        </tr>
+      </thead>
+      <tbody  id="data"></tbody>
+    </table>
+    </div>
+
